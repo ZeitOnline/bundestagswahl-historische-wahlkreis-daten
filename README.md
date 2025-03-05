@@ -28,7 +28,7 @@ Umrechnungstabellen von historischen auf aktuelle Wahlkreisgrenzen (Schritt 9)
 
 ## Prozessbeschreibung
 
-### Wahlkreisgrenzen seit 1998
+### Wahlkreisgrenzen ab 1998
 
 Für die Jahre 1998 und fortfolgend gibt es die Wahlkreisgrenzen auf der [Website der Bundeswahlleiterin](https://www.bundeswahlleiterin.de/bundeswahlleiter.html) als Shapefile zum Download. Sie liegen im Ordner [shapes_historical](./shapes_historical).
 
@@ -66,7 +66,7 @@ Sie liegt als CSV und RDS (R data serialized) vor und beinhaltet folgende Spalte
  **jahr**            | integer   | Das Wahljahr                                                                            
  **wahlkreis_nr**    | integer   | Die Wahlkreisnummer im Jahr 2025                                                        
  **wahlkreis_name**  | character | Der Wahlkreisname im Jahr 2025                                                          
- **partei**          | factor    | Partei-Kürzel (siehe Liste)                                                             
+ **partei**          | factor    | Partei-Kürzel (siehe [parteien.tsv](./parteien.tsv))                                                             
  **stimmen**         | integer   | Anzahl Stimmen der Partei im angegebenen Wahljahr                                       
  **anteil**          | double    | Anteil der Partei an den gültigen Stimmen                                               
  **wahlberechtigte** | integer   | Anzahl Wahlberechtigte im Wahljahr                                                      
@@ -90,6 +90,8 @@ Trotz alledem war dies der beste uns zugängliche Prozess, um historische Wahlda
 
 #### Anmerkungen
 
+- **CDU** und **CSU** werden unter dem Kürzel `union` zusammengefasst, **Bündnis90** und die Grünen unter `gruene` und die **PDS** und die Linke als `linke`. 
+- Keine weiteren Parteien werden gruppiert/addiert. Eine **Zuordnungstabelle** mit deren Kürzeln und den entsprechenden Spaltennamen in den Originaldateien befindet sich in [parteien.tsv](./parteien.tsv). Darin enthalten sind nur Kleinparteien, die 6 großen (Union, AfD, SPD, Grüne, Linke, FDP) werden nicht nochmal ausgewiesen.
 - Die **DDR** ist nicht in den Daten enthalten. Für die Jahre vor 1990 nutzen wir deshalb für die Umrechnung (Schritt 9) eine Datei der 2025er-Grenzen ohne Ostdeutschland.
 - Für das Jahr 2021 gab es eine **offizielle Umrechnung** der Werte von der Bundeswahlleiterin. Wir haben unsere Berechnungen im Resultat mit den offiziellen Zahlen ersetzt.
 - **Westberlin** [nahm bis 1990 nicht an Bundestagswahlen teil](https://de.wikipedia.org/wiki/Berliner_Bundestagsabgeordneter).
